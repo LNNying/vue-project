@@ -63,6 +63,9 @@ export default [
     path: '/join',
     name: 'join',
     component: Main,
+    // 始终可见
+    // showAlways: true,
+    // auth: ['W_POD', 'W_POD_INFO', 'W_POD_INIT'],
     meta: {
       hideInBread: true
     },
@@ -73,6 +76,7 @@ export default [
         meta: {
           icon: '_qq',
           title: 'QQ群'
+          // auth: 'W_POD_INIT'
         },
         component: () => import('@/view/join-page.vue')
       }

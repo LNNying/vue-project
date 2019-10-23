@@ -16,6 +16,8 @@ export default {
   /**
    * @description api请求基础路径
    */
+  // 登录URL
+  url: 'http://192.168.102.96:8088',
   baseUrl: {
     dev: 'https://www.easy-mock.com/mock/5add9213ce4d0e69998a6f51/iview-admin/',
     pro: 'https://produce.com'

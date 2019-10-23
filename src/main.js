@@ -10,6 +10,9 @@ import config from '@/config'
 import importDirective from '@/directive'
 import { directive as clickOutside } from 'v-click-outside-x'
 import installPlugin from '@/plugin'
+import VueAuth from '@websanova/vue-auth'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import './index.less'
 import '@/assets/icons/iconfont.css'
 import TreeTable from 'tree-table-vue'
@@ -24,6 +27,44 @@ Vue.use(iView, {
 })
 Vue.use(TreeTable)
 Vue.use(VOrgTree)
+Vue.use(VueAxios, axios);
+Vue.router = router;
+
+String.prototype.trim = function() {
+  return this.replace(/(^\s*)|(\s*$)/g, '');
+};
+
+String.prototype.replaceAll = function (FindText, RepText) {
+  let regExp = new RegExp(FindText, 'g');
+  return this.replace(regExp, RepText);
+};
+
+Vue.axios.defaults.baseURL = config.url;
+Vue.axios.defaults.headers.post['Content-Type'] = 'application/json';
+Vue.axios.defaults.headers.get['Content-Type'] = 'application/json';
+
+Vue.use(VueAuth, {
+  auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
+  http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
+  router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
+  rolesVar: 'authorities',
+  tokenDefaultName: 'token',
+  authRedirect: {path: '/login'},
+  forbiddenRedirect: {path: '/403'},
+  notFoundRedirect: {path: '/404'},
+  token: [{request: 'Authorization', response: 'Authorization', authType: 'Bearer', foundIn: 'header'}],
+  loginData: {url: '/api/authenticate', method: 'POST', redirect: '/', fetchUser: true},
+  fetchData: {url: '/api/sUser/currentUserInfo', method: 'GET', enabled: true},
+  refreshData: {url: 'auth/refresh', method: 'GET', enabled: false, interval: 30},
+  logoutData: {redirect: '/login', makeRequest: false},
+  parseUserData: function (data) {
+    if (data && data.returnData && data.returnData.fieldSetting) {
+      localStorage.fieldRequireSetting = JSON.stringify(data.returnData.fieldSetting);
+    }
+    return data.returnData;
+  }
+});
+
 /**
  * @description 注册admin内置插件
  */

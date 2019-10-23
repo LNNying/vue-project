@@ -3,12 +3,17 @@
     <slot></slot>
     <Menu ref="menu" v-show="!collapsed" :active-name="activeName" :open-names="openedNames" :accordion="accordion" :theme="theme" width="auto" @on-select="handleSelect">
       <template v-for="item in menuList">
-        <template v-if="item.children && item.children.length === 1">
-          <side-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
-          <menu-item v-else :name="getNameOrHref(item, true)" :key="`menu-${item.children[0].name}`"><common-icon :type="item.children[0].icon || ''"/><span>{{ showTitle(item.children[0]) }}</span></menu-item>
+        <!--父组件中有一个子组件-->
+        <template v-if="onCheckAuth(item) && item.children && item.children.length === 1">
+          <side-menu-item v-if="onCheckAuth(item) && showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
+          <menu-item v-else :name="getNameOrHref(item, true)" :key="`menu-${item.children[0].name}`">
+            <common-icon :type="item.children[0].icon || ''"/>
+            <span>{{ showTitle(item.children[0]) }}</span>
+          </menu-item>
         </template>
-        <template v-else>
-          <side-menu-item v-if="showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
+        <!--父组件中有多个子组件或没有-->
+        <template v-else-if="onCheckAuth(item)">
+          <side-menu-item v-if="onCheckAuth(item) && showChildren(item)" :key="`menu-${item.name}`" :parent-item="item"></side-menu-item>
           <menu-item v-else :name="getNameOrHref(item)" :key="`menu-${item.name}`"><common-icon :type="item.icon || ''"/><span>{{ showTitle(item) }}</span></menu-item>
         </template>
       </template>
@@ -74,6 +79,20 @@ export default {
     }
   },
   methods: {
+    onCheckAuth (item) {
+      if (item.meta !== undefined && item.meta.auth !== undefined) {
+        return this.$auth.check(item.meta.auth)
+      } else {
+        return true
+      }
+    },
+    onMenuHideCheck (item) {
+      if ((item.meta !== undefined && item.meta.parentName !== undefined) || (item.hide !== undefined && item.hide)) {
+        return false
+      } else {
+        return true
+      }
+    },
     handleSelect (name) {
       this.$emit('on-select', name)
     },
