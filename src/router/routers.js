@@ -50,38 +50,37 @@ export default [
       }
     ]
   },
-  {
-    path: '',
-    name: 'doc',
-    meta: {
-      title: '文档',
-      href: 'https://lison16.github.io/iview-admin-doc/#/',
-      icon: 'ios-book'
-    }
-  },
-  {
-    path: '/join',
-    name: 'join',
-    component: Main,
-    // 始终可见
-    // showAlways: true,
-    // auth: ['W_POD', 'W_POD_INFO', 'W_POD_INIT'],
-    meta: {
-      hideInBread: true
-    },
-    children: [
-      {
-        path: 'join_page',
-        name: 'join_page',
-        meta: {
-          icon: '_qq',
-          title: 'QQ群'
-          // auth: 'W_POD_INIT'
-        },
-        component: () => import('@/view/join-page.vue')
-      }
-    ]
-  },
+  // {
+  //   path: '',
+  //   name: 'doc',
+  //   meta: {
+  //     title: '文档',
+  //     href: 'https://lison16.github.io/iview-admin-doc/#/',
+  //     icon: 'ios-book'
+  //   }
+  // },
+  // {
+  //   path: '/join',
+  //   name: 'join',
+  //   component: Main,
+  //   // 始终可见
+  //   // showAlways: true,
+  //   // auth: ['W_POD', 'W_POD_INFO', 'W_POD_INIT'],
+  //   meta: {
+  //     hideInBread: true
+  //   },
+  //   children: [
+  //     {
+  //       path: 'join_page',
+  //       name: 'join_page',
+  //       meta: {
+  //         title: 'QQ群'
+  //         // auth: 'W_POD_INIT'
+  //       },
+  //       component: () => import('@/view/join-page.vue')
+  //     }
+  //   ]
+  // },
   {
     path: '/message',
     name: 'message',
@@ -95,7 +94,6 @@ export default [
         path: 'message_page',
         name: 'message_page',
         meta: {
-          icon: 'md-notifications',
           title: '消息中心'
         },
         component: () => import('@/view/single-page/message/index.vue')
@@ -115,7 +113,6 @@ export default [
         path: 'tree_select_page',
         name: 'tree_select_page',
         meta: {
-          icon: 'md-arrow-dropdown-circle',
           title: '树状下拉选择器'
         },
         component: () => import('@/view/components/tree-select/index.vue')
@@ -124,7 +121,6 @@ export default [
         path: 'count_to_page',
         name: 'count_to_page',
         meta: {
-          icon: 'md-trending-up',
           title: '数字渐变'
         },
         component: () => import('@/view/components/count-to/count-to.vue')
@@ -133,7 +129,6 @@ export default [
         path: 'drag_list_page',
         name: 'drag_list_page',
         meta: {
-          icon: 'ios-infinite',
           title: '拖拽列表'
         },
         component: () => import('@/view/components/drag-list/drag-list.vue')
@@ -142,7 +137,6 @@ export default [
         path: 'drag_drawer_page',
         name: 'drag_drawer_page',
         meta: {
-          icon: 'md-list',
           title: '可拖拽抽屉'
         },
         component: () => import('@/view/components/drag-drawer')
@@ -151,7 +145,6 @@ export default [
         path: 'org_tree_page',
         name: 'org_tree_page',
         meta: {
-          icon: 'ios-people',
           title: '组织结构树'
         },
         component: () => import('@/view/components/org-tree')
@@ -160,7 +153,6 @@ export default [
         path: 'tree_table_page',
         name: 'tree_table_page',
         meta: {
-          icon: 'md-git-branch',
           title: '树状表格'
         },
         component: () => import('@/view/components/tree-table/index.vue')
@@ -169,7 +161,6 @@ export default [
         path: 'cropper_page',
         name: 'cropper_page',
         meta: {
-          icon: 'md-crop',
           title: '图片裁剪'
         },
         component: () => import('@/view/components/cropper/cropper.vue')
@@ -178,7 +169,6 @@ export default [
         path: 'tables_page',
         name: 'tables_page',
         meta: {
-          icon: 'md-grid',
           title: '多功能表格'
         },
         component: () => import('@/view/components/tables/tables.vue')
@@ -187,7 +177,6 @@ export default [
         path: 'split_pane_page',
         name: 'split_pane_page',
         meta: {
-          icon: 'md-pause',
           title: '分割窗口'
         },
         component: () => import('@/view/components/split-pane/split-pane.vue')
@@ -196,7 +185,6 @@ export default [
         path: 'markdown_page',
         name: 'markdown_page',
         meta: {
-          icon: 'logo-markdown',
           title: 'Markdown编辑器'
         },
         component: () => import('@/view/components/markdown/markdown.vue')
@@ -205,7 +193,6 @@ export default [
         path: 'editor_page',
         name: 'editor_page',
         meta: {
-          icon: 'ios-create',
           title: '富文本编辑器'
         },
         component: () => import('@/view/components/editor/editor.vue')
@@ -214,7 +201,6 @@ export default [
         path: 'icons_page',
         name: 'icons_page',
         meta: {
-          icon: '_bear',
           title: '自定义图标'
         },
         component: () => import('@/view/components/icons/icons.vue')

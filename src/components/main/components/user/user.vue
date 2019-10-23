@@ -1,13 +1,13 @@
 <template>
   <div class="user-avatar-dropdown">
     <Dropdown @on-click="handleClick">
-      <Badge :dot="!!messageUnreadCount">
-        <Avatar :src="userAvatar"/>
-      </Badge>
-      <Icon :size="18" type="md-arrow-dropdown"></Icon>
+      <a href="javascript:void(0)">
+        <span class="main-user-name">{{ userName }}</span>
+        <Icon :size="18" type="md-arrow-dropdown"></Icon>
+      </a>
       <DropdownMenu slot="list">
-        <DropdownItem name="message">
-          消息中心<Badge style="margin-left: 10px" :count="messageUnreadCount"></Badge>
+        <DropdownItem name="own">
+          个人中心<Badge style="margin-left: 10px" :count="messageUnreadCount"></Badge>
         </DropdownItem>
         <DropdownItem name="logout">退出登录</DropdownItem>
       </DropdownMenu>
@@ -30,30 +30,43 @@ export default {
       default: 0
     }
   },
+  data () {
+    return {
+      userName: ''
+    }
+  },
   methods: {
     ...mapActions([
       'handleLogOut'
     ]),
     logout () {
-      this.handleLogOut().then(() => {
-        this.$router.push({
-          name: 'login'
-        })
+      this.$auth.logout({
+        success: function () {},
+        error: function () {}
       })
+      // this.handleLogOut().then(() => {
+      //   this.$router.push({
+      //     name: 'login'
+      //   })
+      // })
     },
-    message () {
+    ownSpace () {
       this.$router.push({
-        name: 'message_page'
+        name: '个人信息'
       })
     },
     handleClick (name) {
       switch (name) {
         case 'logout': this.logout()
           break
-        case 'message': this.message()
+        case 'own': this.ownSpace()
           break
       }
     }
+  },
+  mounted () {
+    let user = this.$auth.user()
+    this.userName = user.realName
   }
 }
 </script>

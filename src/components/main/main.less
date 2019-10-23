@@ -11,7 +11,7 @@
   }
   .header-con{
     background: #fff;
-    padding: 0 20px;
+    padding: 0 18px;
     width: 100%;
   }
   .main-layout-con{
@@ -24,11 +24,10 @@
   }
   .tag-nav-wrapper{
     padding: 0;
-    height:40px;
-    background:#F0F0F0;
+    height: 33px;
+    background: white;
   }
   .content-wrapper{
-    padding: 18px;
     height: ~"calc(100% - 80px)";
     overflow: auto;
   }
@@ -38,6 +37,17 @@
       margin-right: -18px;
     }
   }
+}
+.sidebar-menu-con{
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 21;
+  transition: width .3s;
+}
+.sider-trigger-a{
+  margin-top: 3px;
 }
 .ivu-menu-item > i{
   margin-right: 12px !important;
@@ -72,4 +82,13 @@
 
 .ivu-select-dropdown.ivu-dropdown-transfer{
   max-height: 400px;
+}
+
+.ivu-layout-header{
+  height: 40px;
+}
+.ivu-tag {
+  margin: 0px;
+  height: 20px;
+  line-height: 26px;
 }
