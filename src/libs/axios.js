@@ -21,7 +21,7 @@ class HttpRequest {
     const config = {
       baseURL: this.baseUrl,
       headers: {
-        //
+        Authorization: 'Bearer ' + window.localStorage['token']
       }
     }
     return config
