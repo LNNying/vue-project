@@ -85,6 +85,7 @@ export default [
     path: '/message',
     name: 'message',
     component: Main,
+    title: '消息中心',
     meta: {
       hideInBread: true,
       hideInMenu: true

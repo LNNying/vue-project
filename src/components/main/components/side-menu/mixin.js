@@ -8,6 +8,13 @@ export default {
     showTitle (item) {
       return showTitle(item, this)
     },
+    onCheckAuth (item) {
+      if (item.meta !== undefined && item.meta.auth !== undefined) {
+        return this.$auth.check(item.meta.auth)
+      } else {
+        return true
+      }
+    },
     showChildren (item) {
       return item.children && (item.children.length > 1 || (item.meta && item.meta.showAlways))
     },

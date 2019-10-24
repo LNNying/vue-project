@@ -6,12 +6,40 @@ const { title, cookieExpires, useI18n } = config
 
 export const TOKEN_KEY = 'token'
 
+let util = {
+
+}
+util.title = function (title) {
+  title = title || '货代管理平台'
+  window.document.title = title
+}
+// 缺少了这个方法
+util.toDefaultPage = function (routers, name, route, next) {
+  let len = routers.length
+  let i = 0
+  let notHandle = true
+  while (i < len) {
+    if (routers[i].name === name && routers[i].children && routers[i].redirect === undefined) {
+      route.replace({
+        name: routers[i].children[0].name
+      })
+      notHandle = false
+      next()
+      break
+    }
+    i++
+  }
+  if (notHandle) {
+    next()
+  }
+}
+
 export const setToken = (token) => {
   Cookies.set(TOKEN_KEY, token, { expires: cookieExpires || 1 })
 }
 
 export const getToken = () => {
-  const token = Cookies.get(TOKEN_KEY)
+  const token = 'admin'
   if (token) return token
   else return false
 }

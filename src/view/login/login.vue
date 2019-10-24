@@ -27,13 +27,32 @@ export default {
       'handleLogin',
       'getUserInfo'
     ]),
-    handleSubmit ({ userName, password }) {
-      this.handleLogin({ userName, password }).then(res => {
-        this.getUserInfo().then(res => {
-          this.$router.push({
-            name: this.$config.homeName
-          })
-        })
+    handleSubmit (loginInfo) {
+      this.$auth.login({
+        data: {
+          'username': loginInfo.userName,
+          'password': loginInfo.password,
+          'rememberMe': true
+        },
+        success: function (result) {
+          if (result.data.returnCode === 200) {
+            localStorage.socket_token = result.data.returnData.socketToken
+            sessionStorage.socket_token = result.data.returnData.socketToken
+          } else {
+            if (result.data.returnMsg && result.data.returnMsg !== 'Bad credentials') {
+              this.$Message.error(result.data.returnMsg)
+            } else {
+              this.$Message.error('用户名或密码错误！请重试！')
+            }
+            throw new Error('登录发生错误')
+          }
+        },
+        error: function (result) {
+          this.$Message.error('用户名或密码错误！请重试！')
+        },
+        rememberMe: true,
+        redirect: '/',
+        fetchUser: true
       })
     }
   }

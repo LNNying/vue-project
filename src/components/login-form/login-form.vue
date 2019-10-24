@@ -43,7 +43,7 @@ export default {
   data () {
     return {
       form: {
-        userName: 'super_admin',
+        userName: 'sys_admin',
         password: ''
       }
     }
@@ -60,10 +60,12 @@ export default {
     handleSubmit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.$emit('on-success-valid', {
+          let password = this.$md5(this.form.password).toUpperCase()
+          let body = {
             userName: this.form.userName,
-            password: this.form.password
-          })
+            password: password
+          }
+          this.$emit('on-success-valid', body)
         }
       })
     }
