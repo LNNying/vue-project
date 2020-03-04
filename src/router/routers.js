@@ -364,6 +364,25 @@ export default [
     ]
   },
   {
+    path: '/test',
+    name: 'Vue Konva',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'test',
+        name: 'Vue Konva',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'Vue Konva'
+        },
+        component: () => import('@/view/test/testMap.vue')
+      }
+    ]
+  },
+  {
     path: '/multilevel',
     name: 'multilevel',
     meta: {
