@@ -30,6 +30,9 @@
     <Row class="margin-top-10">
       <Table :columns="tableTitle" :data="tableData" :loading="tableLoading"></Table>
     </Row>
+    <div @mousedown="mos" style="border: 1px solid red; width: 100px; height: 100px;">
+
+    </div>
   </div>
 </template>
 <script>
@@ -49,6 +52,9 @@ export default {
     }
   },
   methods: {
+    mos (e) {
+      console.log(e)
+    },
     initUpload () {
       this.file = null
       this.showProgress = false

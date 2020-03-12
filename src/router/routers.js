@@ -365,7 +365,7 @@ export default [
   },
   {
     path: '/test',
-    name: 'Vue Konva',
+    name: '图形化',
     meta: {
       hideInBread: true
     },
@@ -379,6 +379,15 @@ export default [
           title: 'Vue Konva'
         },
         component: () => import('@/view/test/testMap.vue')
+      },
+      {
+        path: 'test2',
+        name: 'Vue Konva2',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'Vue Konva'
+        },
+        component: () => import('@/view/test/testMap2.vue')
       }
     ]
   },

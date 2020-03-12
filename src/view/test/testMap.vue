@@ -1,61 +1,64 @@
 <template>
   <div>
-   <!-- 用法：
-    <v-stage>
-      <v-layer>
-        图形样式
-      </v-layer>
-    </v-stage>
-    图形方式包括：v-rect, v-circle, v-ellipse, v-line, v-image, v-text, v-text-path, v-star, v-label, v-path, v-regular-polygon
-    vue中使用：
-    npm install vue-konva konva --save
+    <!-- 用法：
+     <v-stage>
+       <v-layer>
+         图形样式
+       </v-layer>
+     </v-stage>
+     图形方式包括：v-rect, v-circle, v-ellipse, v-line, v-image, v-text, v-text-path, v-star, v-label, v-path, v-regular-polygon
+     vue中使用：
+     npm install vue-konva konva --save
 
-    import VueKonva from 'vue-konva'
+     import VueKonva from 'vue-konva'
 
-    Vue.use(VueKonva)
-    Vue使用网址：https://konvajs.org/docs/vue/index.html
-    -->
-    <v-stage :config="configKonva">
-      <v-layer>
-        <v-rect :config="configCircle"></v-rect>
-      </v-layer>
-    </v-stage>
-    <!--<v-stage-->
-      <!--ref="stage"-->
-      <!--:config="configKonva"-->
-      <!--@dragstart="handleDragstart"-->
-      <!--@dragend="handleDragend"-->
-      <!--@click="handleClick"-->
-    <!--&gt;-->
-      <!--<v-layer ref="layer">-->
-        <!--<v-star-->
-          <!--v-for="item in list"-->
-          <!--:key="item.id"-->
-          <!--:config="{-->
-            <!--x: item.x,-->
-            <!--y: item.y,-->
-            <!--rotation: item.rotation,-->
-            <!--id: item.id,-->
-            <!--numPoints: 5,-->
-            <!--innerRadius: 30,-->
-            <!--outerRadius: 50, fill: '#89b717',-->
-            <!--opacity: 0.8,-->
-            <!--draggable: true,-->
-            <!--scaleX: dragItemId === item.id ? item.scale * 1.2 : item.scale,-->
-            <!--scaleY: dragItemId === item.id ? item.scale * 1.2 : item.scale,-->
-            <!--shadowColor: 'black',-->
-            <!--shadowBlur: 10,-->
-            <!--shadowOffsetX: dragItemId === item.id ? 15 : 5,-->
-            <!--shadowOffsetY: dragItemId === item.id ? 15 : 5,-->
-            <!--shadowOpacity: 0.6-->
-          <!--}"-->
-        <!--&gt;</v-star>-->
-      <!--</v-layer>-->
+     Vue.use(VueKonva)
+     Vue使用网址：https://konvajs.org/docs/vue/index.html
+     -->
+    <!--<v-stage :config="configKonva">-->
+    <!--<v-layer>-->
+    <!--<v-rect :config="configCircle"></v-rect>-->
+    <!--</v-layer>-->
     <!--</v-stage>-->
+    <v-stage
+      ref="stage"
+      :config="configKonva"
+      style="border: 1px solid red;"
+      @dragstart="handleDragstart"
+      @dragend="handleDragend"
+      @click="handleClick"
+      @wheel="roll"
+    >
+      <v-layer ref="layer">
+        <v-star
+          v-for="item in list"
+          :key="item.id"
+          :config="{
+            x: item.x,
+            y: item.y,
+            rotation: item.rotation,
+            id: item.id,
+            numPoints: 5,
+            innerRadius: 30,
+            outerRadius: 50, fill: '#89b717',
+            opacity: 0.8,
+            draggable: true,
+            scaleX: dragItemId === item.id ? item.scale * 1.2 : item.scale,
+            scaleY: dragItemId === item.id ? item.scale * 1.2 : item.scale,
+            shadowColor: 'black',
+            shadowBlur: 10,
+            shadowOffsetX: dragItemId === item.id ? 15 : 5,
+            shadowOffsetY: dragItemId === item.id ? 15 : 5,
+            shadowOpacity: 0.6
+          }"
+        ></v-star>
+      </v-layer>
+    </v-stage>
   </div>
 </template>
 
 <script>
+// let scale = 1
 const width = window.innerWidth
 const height = window.innerHeight
 export default {
@@ -66,8 +69,12 @@ export default {
       dragItemId: null,
       configKonva: {
         width: width,
-        height: height
+        height: height,
+        draggable: true
       },
+      width: window.innerWidth,
+      height: window.innerHeight,
+      scale: 1,
       configCircle: {
         x: 100,
         y: 100,
@@ -96,18 +103,39 @@ export default {
     },
     handleClick (e) {
       console.log(e)
+    },
+    roll (e) {
+      console.log(e)
+      if (event.wheelDelta > 0) {
+        if (this.scale > 30) {
+          return
+        }
+        this.scale += 9
+      } else {
+        if (this.scale <= 15) {
+          this.scale = 15
+          return
+        }
+        this.scale -= 9
+      }
+      this.buildMap()
+      console.log(this.scale)
+    },
+    buildMap () {
+      this.list = []
+      for (let n = 0; n < 30; n++) {
+        this.list.push({
+          id: Math.round(Math.random() * 10000).toString(),
+          x: Math.random() * this.width,
+          y: Math.random() * this.height,
+          rotation: Math.random() * 180,
+          scale: Math.random()
+        })
+      }
     }
   },
   mounted () {
-    for (let n = 0; n < 30; n++) {
-      this.list.push({
-        id: Math.round(Math.random() * 10000).toString(),
-        x: Math.random() * width,
-        y: Math.random() * height,
-        rotation: Math.random() * 180,
-        scale: Math.random()
-      })
-    }
+    this.buildMap()
   }
 }
 </script>
