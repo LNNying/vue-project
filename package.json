@@ -24,6 +24,7 @@
     "iview-area": "^1.5.17",
     "js-cookie": "^2.2.0",
     "js-md5": "^0.7.3",
+    "jsoneditor": "^8.6.3",
     "konva": "^4.1.6",
     "md5": "^2.2.1",
     "simplemde": "^1.11.2",

@@ -364,9 +364,39 @@ export default [
     ]
   },
   {
+    path: '/json',
+    name: 'Json编辑器',
+    meta: {
+      hideInBread: true,
+      title: 'Json编辑器'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'jsonEdit',
+        name: 'Json编辑器',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'Json编辑器'
+        },
+        component: () => import('@/view/json/jsonEdit.vue')
+      },
+      {
+        path: 'vueJson',
+        name: 'vue-json-editor',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'vue-json-editor'
+        },
+        component: () => import('@/view/json/vue-json.vue')
+      }
+    ]
+  },
+  {
     path: '/test',
     name: '图形化',
     meta: {
+      title: '图形化',
       hideInBread: true
     },
     component: Main,
