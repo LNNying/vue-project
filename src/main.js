@@ -21,6 +21,11 @@ import 'v-org-tree/dist/v-org-tree.css'
 import md5 from 'js-md5'
 import VueKonva from 'vue-konva'
 import jsoneditor from 'jsoneditor'
+import $ from 'jquery'
+import '../src/static/ztree/jquery.ztree.core.min'
+import '../src/static/ztree/jquery.ztree.excheck.min'
+import '../src/static/ztree/jquery.ztree.exedit.min'
+import '../src/static/ztree/zTreeStyle/zTreeStyle.css'
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
@@ -28,6 +33,8 @@ if (process.env.NODE_ENV !== 'production') require('@/mock')
 Vue.use(VueKonva)
 
 Vue.prototype.$md5 = md5;
+
+Vue.prototype.$jquery = $
 
 Vue.prototype.$jsoneditor = jsoneditor
 

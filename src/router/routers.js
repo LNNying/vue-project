@@ -389,6 +389,15 @@ export default [
           title: 'vue-json-editor'
         },
         component: () => import('@/view/json/vue-json.vue')
+      },
+      {
+        path: 'vue-tree',
+        name: 'vue-tree',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'vue-tree'
+        },
+        component: () => import('@/view/json/vue-tree.vue')
       }
     ]
   },

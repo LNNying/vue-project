@@ -1,14 +1,20 @@
 <template>
-  <div ref="jsoneditor" style="width: 600px;height: 400px; border: 1px solid red;"></div>
+  <div>
+    <div ref="jsoneditor" style="width: 600px;height: 400px; border: 1px solid red;"></div>
+    <div id="ds"></div>
+  </div>
+
 </template>
 
 <script>
+import $ from 'jquery'
 export default {
   name: 'jsonEdit',
   data () {
     return {}
   },
   mounted () {
+    console.log($('#ds'))
     let json = {
       'Array': [1, 2, 3],
       'Boolean': true,

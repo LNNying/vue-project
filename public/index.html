@@ -12,6 +12,15 @@
       <strong>We're sorry but iview-admin doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
+    <!--
+    vue 引入zTree插件
+    1. 在src中建一个static文件 js静态文件都要放在static中，并在main.js中import引入zTree文件
+    2. 在index.js中引入jQuery文件
+    3. 最好在main.js 也引入jquery文件 npm i jquery 并全局声明一下jQuery
+    4. 不好忘记加class="ztree" 类
+
+    -->
+    <script src="static/utils/jquery-1.4.4.min.js"></script>
     <!-- built files will be auto injected -->
   </body>
 </html>
