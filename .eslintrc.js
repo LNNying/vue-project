@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   'extends': [
     'plugin:vue/essential',
-    // '@vue/standard'
+    // '@vue/standard' // git提交代码eslint检测代码
   ],
   rules: {
     // allow async-await
