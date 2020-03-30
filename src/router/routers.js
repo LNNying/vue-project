@@ -368,7 +368,9 @@ export default [
     name: 'Json编辑器',
     meta: {
       hideInBread: true,
-      title: 'Json编辑器'
+      title: 'Json编辑器',
+      icon: 'ios-navigate',
+      showAlways: true,
     },
     component: Main,
     children: [
@@ -406,7 +408,9 @@ export default [
     name: '图形化',
     meta: {
       title: '图形化',
-      hideInBread: true
+      hideInBread: true,
+      icon: 'ios-navigate',
+      showAlways: true,
     },
     component: Main,
     children: [
@@ -427,6 +431,28 @@ export default [
           title: 'Vue Konva'
         },
         component: () => import('@/view/test/testMap2.vue')
+      }
+    ]
+  },
+  {
+    path: '/echart',
+    name: 'echart',
+    meta: {
+      title: '图形化',
+      hideInBread: true,
+      icon: 'ios-navigate',
+      showAlways: true,
+    },
+    component: Main,
+    children: [
+      {
+        path: 'echartMap',
+        name: 'echartMap',
+        meta: {
+          icon: 'ios-navigate',
+          title: 'echartMap'
+        },
+        component: () => import('@/view/echart/echartMap.vue')
       }
     ]
   },
