@@ -17,10 +17,10 @@ export default {
    * @description api请求基础路径
    */
   // 登录URL
-  url: 'http://192.168.102.96:8088',
+  url: 'http://localhost:8088',
   baseUrl: {
-    dev: 'http://192.168.102.96:8088',
-    pro: 'http://192.168.102.96:8088'
+    dev: 'http://localhost:8088',
+    pro: 'http://localhost:8088'
   },
   /**
    * @description 默认打开的首页的路由name值，默认为home

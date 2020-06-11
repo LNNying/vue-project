@@ -400,6 +400,15 @@ export default [
           title: 'vue-tree'
         },
         component: () => import('@/view/json/vue-tree.vue')
+      },
+      {
+        path: '3D',
+        name: '3D',
+        meta: {
+          icon: 'ios-navigate',
+          title: '3D'
+        },
+        component: () => import('@/view/json/3D.vue')
       }
     ]
   },

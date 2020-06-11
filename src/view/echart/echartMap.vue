@@ -63,8 +63,6 @@
               filterMode: 'empty',
               width: 16,
               height: '80%',
-              handleSize: 8,
-              showDataShadow: false,
               left: '93%'
             }
           ],
@@ -119,15 +117,15 @@
                   show: true
                 }
               },
-              symbolSize: 15,
+              symbolSize: 12,
               data: (function () {
                 let d = [];
-                let len = 0;
+                let len = 50;
                 let value;
                 while (len++ < 50) {
                   d.push([
                     len,
-                    (Math.random()*30).toFixed(0)
+                    (Math.random()*100).toFixed(0)
                   ]);
                 }
                 return d;
@@ -148,15 +146,15 @@
                   show: true
                 }
               },
-              symbolSize: 15,
+              symbolSize: 12,
               data: (function () {
                 let d = [];
-                let len = 0;
+                let len = 50;
                 let value;
                 while (len++ < 100) {
                   d.push([
                     len,
-                    (Math.random()*30).toFixed(0)
+                    (Math.random()*100).toFixed(0)
                   ]);
                 }
                 return d;
