@@ -119,6 +119,14 @@ export default [
         component: () => import('@/view/components/tree-select/index.vue')
       },
       {
+        path: 'test-component',
+        name: '测试父子组件通信',
+        meta: {
+          title: '测试父子组件通信'
+        },
+        component: () => import('@/view/test-component/test-component.vue')
+      },
+      {
         path: 'count_to_page',
         name: 'count_to_page',
         meta: {
@@ -283,6 +291,44 @@ export default [
           beforeCloseName: 'before_close_normal'
         },
         component: () => import('@/view/tools-methods/tools-methods.vue')
+      }
+    ]
+  },
+  {
+    path: '/my',
+    name: '自己组件',
+    meta: {
+      hideInBread: true,
+      title: '自己组件'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'select',
+        name: '下拉选择1',
+        meta: {
+          icon: 'md-planet',
+          title: '自己组件'
+        },
+        component: () => import('@/view/my-component/select-my.vue')
+      },
+      {
+        path: 'select2',
+        name: '下拉选择2',
+        meta: {
+          icon: 'md-planet',
+          title: '自己组件'
+        },
+        component: () => import('@/view/my-component/select-table.vue')
+      },
+      {
+        path: 'select3',
+        name: '下拉选择3',
+        meta: {
+          icon: 'md-planet',
+          title: '自己组件'
+        },
+        component: () => import('@/view/my-component/select-my-tree-select.vue')
       }
     ]
   },

@@ -13,6 +13,8 @@ import installPlugin from '@/plugin'
 import VueAuth from '@websanova/vue-auth'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import 'element-ui/lib/theme-chalk/index.css'
+import Clickoutside from 'element-ui/src/utils/clickoutside'
 import './index.less'
 import '@/assets/icons/iconfont.css'
 import TreeTable from 'tree-table-vue'
@@ -21,6 +23,7 @@ import 'v-org-tree/dist/v-org-tree.css'
 import md5 from 'js-md5'
 import VueKonva from 'vue-konva'
 import jsoneditor from 'jsoneditor'
+import Element from 'element-ui'
 import $ from 'jquery'
 import '../src/static/ztree/jquery.ztree.core.min'
 import '../src/static/ztree/jquery.ztree.excheck.min'
@@ -39,6 +42,9 @@ Vue.prototype.$jquery = $
 Vue.prototype.$jsoneditor = jsoneditor
 
 Vue.use(iView, {
+  i18n: (key, value) => i18n.t(key, value)
+})
+Vue.use(Element, {
   i18n: (key, value) => i18n.t(key, value)
 })
 Vue.use(TreeTable)
@@ -97,7 +103,7 @@ Vue.prototype.$config = config
  * 注册指令
  */
 importDirective(Vue)
-Vue.directive('clickOutside', clickOutside)
+Vue.directive('clickOutside', Clickoutside)
 
 /* eslint-disable no-new */
 new Vue({

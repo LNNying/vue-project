@@ -1,7 +1,7 @@
 const path = require('path')
 
 
-const ThreeExamples = require('import-three-examples')
+// const ThreeExamples = require('import-three-examples')
 
 // module.exports = {
 //
@@ -37,21 +37,21 @@ module.exports = {
   // 如果你不需要使用eslint，把lintOnSave设为false即可
   lintOnSave: false,
   chainWebpack: config => {
-    ThreeExamples.forEach((v) => {
-      if (~v.use.indexOf('imports')) {
-        config.module
-          .rule(`${v.test}_i`)
-          .test(require.resolve(v.test))
-          .use(v.use)
-          .loader(v.use)
-      } else {
-        config.module
-          .rule(`${v.test}_e`)
-          .test(require.resolve(v.test))
-          .use(v.use)
-          .loader(v.use)
-      }
-    })
+    // ThreeExamples.forEach((v) => {
+    //   if (~v.use.indexOf('imports')) {
+    //     config.module
+    //       .rule(`${v.test}_i`)
+    //       .test(require.resolve(v.test))
+    //       .use(v.use)
+    //       .loader(v.use)
+    //   } else {
+    //     config.module
+    //       .rule(`${v.test}_e`)
+    //       .test(require.resolve(v.test))
+    //       .use(v.use)
+    //       .loader(v.use)
+    //   }
+    // })
     config.resolve.alias
       .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
       .set('_c', resolve('src/components'))
