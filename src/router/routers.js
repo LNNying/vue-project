@@ -410,6 +410,25 @@ export default [
     ]
   },
   {
+    path: '/IE',
+    name: 'ie兼容',
+    meta: {
+      hideInBread: true
+    },
+    component: Main,
+    children: [
+      {
+        path: 'Ie',
+        name: 'IE兼容',
+        meta: {
+          icon: 'ios-navigate',
+          title: '指令'
+        },
+        component: () => import('@/view/IE/ie.vue')
+      }
+    ]
+  },
+  {
     path: '/json',
     name: 'Json编辑器',
     meta: {
