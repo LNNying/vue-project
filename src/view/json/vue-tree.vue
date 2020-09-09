@@ -19,7 +19,10 @@ export default {
       zNodes: [
         { id: 1, pId: 0, name: '父节点1' },
         { id: 11, pId: 1, name: '子节点1' },
-        { id: 12, pId: 1, name: '子节点2' }
+        { id: 12, pId: 1, name: '子节点2' },
+        { id: 2, pId: 0, name: '父节点2' },
+        { id: 11, pId: 2, name: '子节点1' },
+        { id: 12, pId: 2, name: '子节点2' }
       ]
     }
   },

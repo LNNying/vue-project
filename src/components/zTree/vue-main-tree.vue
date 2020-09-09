@@ -271,6 +271,16 @@
 
 5. 文档  http://www.treejs.cn/v3/api.php
 
+配置
+ 在../src/static/ztree有插件
+ npm i jquery
+ 在main.js
+import '../src/static/ztree/jquery.ztree.core.min'
+import '../src/static/ztree/jquery.ztree.core.min'
+import '../src/static/ztree/jquery.ztree.excheck.min'
+import '../src/static/ztree/jquery.ztree.exedit.min'
+import '../src/static/ztree/zTreeStyle/zTreeStyle.css'
+
 6. chkboxType
 Y 属性定义 checkbox 被勾选后的情况；
 N 属性定义 checkbox 取消勾选后的情况；
