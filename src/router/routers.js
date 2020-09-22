@@ -321,15 +321,15 @@ export default [
         },
         component: () => import('@/view/my-component/select-table.vue')
       },
-      {
-        path: 'select3',
-        name: '下拉选择3',
-        meta: {
-          icon: 'md-planet',
-          title: '自己组件'
-        },
-        component: () => import('@/view/my-component/select-my-tree-select.vue')
-      }
+      // {
+      //   path: 'select3',
+      //   name: '下拉选择3',
+      //   meta: {
+      //     icon: 'md-planet',
+      //     title: '自己组件'
+      //   },
+      //   component: () => import('@/view/my-component/select-my-tree-select.vue')
+      // }
     ]
   },
   {
