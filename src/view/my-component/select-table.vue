@@ -3,11 +3,14 @@
       :columns="columns"
       size="small"
       :data="data"
+      v-model="dddd"
       code-key="code"
       name-key="name"
       :multiple="true"
 
       @on-change="onChange"></select-table-lnn>
+
+
 </template>
 
 <script>
