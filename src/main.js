@@ -8,7 +8,7 @@ import iView from 'iview'
 import i18n from '@/locale'
 import config from '@/config'
 import importDirective from '@/directive'
-import { directive as clickOutside } from 'v-click-outside-x'
+import {directive as clickOutside} from 'v-click-outside-x'
 import installPlugin from '@/plugin'
 import VueAuth from '@websanova/vue-auth'
 import axios from 'axios'
@@ -29,6 +29,7 @@ import '../src/static/ztree/jquery.ztree.core.min'
 import '../src/static/ztree/jquery.ztree.excheck.min'
 import '../src/static/ztree/jquery.ztree.exedit.min'
 import '../src/static/ztree/zTreeStyle/zTreeStyle.css'
+import IdleVue from 'idle-vue';
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
@@ -46,13 +47,22 @@ Vue.use(iView, {
 })
 Vue.use(Element, {
   i18n: (key, value) => i18n.t(key, value)
+});
+const eventsHub = new Vue();
+
+Vue.use(IdleVue, {
+  eventEmitter: eventsHub,
+  store,
+  idleTime: 3000, // 3秒钟,
+  startAtIdle: false
 })
+
 Vue.use(TreeTable)
 Vue.use(VOrgTree)
 Vue.use(VueAxios, axios);
 Vue.router = router;
 
-String.prototype.trim = function() {
+String.prototype.trim = function () {
   return this.replace(/(^\s*)|(\s*$)/g, '');
 };
 

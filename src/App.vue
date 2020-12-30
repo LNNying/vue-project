@@ -6,7 +6,17 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    isIdle() {
+      return this.$store.state.idleVue.isIdle;
+    }
+  },
+  created() {
+    // setInterval(() => {
+    //   console.log(this.isIdle);
+    // }, 1000)
+  }
 }
 </script>
 
