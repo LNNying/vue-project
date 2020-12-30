@@ -338,6 +338,24 @@ export default [
           title: '自己组件'
         },
         component: () => import('@/view/my-component/select-com.vue')
+      },
+      {
+        path: 'china',
+        name: '中国地图',
+        meta: {
+          icon: 'md-planet',
+          title: '自己组件'
+        },
+        component: () => import('@/view/map/china.vue')
+      },
+      {
+        path: 'china-map',
+        name: '中国地图-自定义标注',
+        meta: {
+          icon: 'md-planet',
+          title: '自己组件'
+        },
+        component: () => import('@/view/map/china-tag.vue')
       }
     ]
   },
