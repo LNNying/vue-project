@@ -30,6 +30,20 @@ import '../src/static/ztree/jquery.ztree.excheck.min'
 import '../src/static/ztree/jquery.ztree.exedit.min'
 import '../src/static/ztree/zTreeStyle/zTreeStyle.css'
 import IdleVue from 'idle-vue';
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+
+import 'vue-easytable/libs/themes-base/index.css'
+import {VTable,VPagination} from 'vue-easytable'
+
+// import { TableComponent, TableColumn } from 'vue-table-component';
+//
+// Vue.component('table-component', TableComponent);
+// Vue.component('table-column', TableColumn);
+
+Vue.component(VTable.name, VTable);
+Vue.component(VPagination.name, VPagination);
+Vue.component('v-select', vSelect)
 
 // 实际打包时应该不引入mock
 /* eslint-disable */
@@ -70,6 +84,8 @@ String.prototype.replaceAll = function (FindText, RepText) {
   let regExp = new RegExp(FindText, 'g');
   return this.replace(regExp, RepText);
 };
+
+
 
 Vue.axios.defaults.baseURL = config.url;
 Vue.axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -117,9 +133,8 @@ Vue.directive('clickOutside', Clickoutside)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   router,
   i18n,
   store,
   render: h => h(App)
-})
+}).$mount('#app');

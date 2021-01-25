@@ -356,6 +356,51 @@ export default [
           title: '自己组件'
         },
         component: () => import('@/view/map/china-tag.vue')
+      },
+      {
+        path: 'Vue-EasyTable',
+        name: 'Vue-EasyTable',
+        meta: {
+          icon: 'md-planet',
+          title: 'Vue-EasyTable'
+        },
+        component: () => import('@/view/table/Vue-EasyTable.vue')
+      },
+      {
+        path: 'vue-table-com',
+        name: '插件Vue-Table',
+        meta: {
+          icon: 'md-planet',
+          title: '自定义Select'
+        },
+        component: () => import('@/view/table/vue-table-com.vue')
+      },
+      {
+        path: 'custom',
+        name: '自定义列',
+        meta: {
+          icon: 'md-planet',
+          title: 'custom'
+        },
+        component: () => import('@/view/table/custom-table.vue')
+      },
+      {
+        path: 'custom-select',
+        name: '自定义Select',
+        meta: {
+          icon: 'md-planet',
+          title: '自定义Select'
+        },
+        component: () => import('@/view/table/custom-select.vue')
+      },
+      {
+        path: 'vue-select',
+        name: '插件Vue-Select',
+        meta: {
+          icon: 'md-planet',
+          title: '自定义Select'
+        },
+        component: () => import('@/view/table/vue-select-com.vue')
       }
     ]
   },
