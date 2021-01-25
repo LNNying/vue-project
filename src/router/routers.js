@@ -295,6 +295,44 @@ export default [
     ]
   },
   {
+    path: '/JSX-com',
+    name: 'JSX',
+    meta: {
+      hideInBread: true,
+      title: 'JSX'
+    },
+    component: Main,
+    children: [
+      {
+        path: 'jsx',
+        name: '函数式组件',
+        meta: {
+          icon: 'md-planet',
+          title: '函数式组件'
+        },
+        component: () => import('@/view/jsx/fun-com.vue')
+      },
+      {
+        path: 'ele-table',
+        name: 'TableTest',
+        meta: {
+          icon: 'md-planet',
+          title: 'TableTest'
+        },
+        component: () => import('@/view/jsx/table.vue')
+      },
+      {
+        path: 'iview-table',
+        name: 'IviewTableTest',
+        meta: {
+          icon: 'md-planet',
+          title: 'IviewTableTest'
+        },
+        component: () => import('@/view/jsx/iview-table.vue')
+      }
+    ]
+  },
+  {
     path: '/my',
     name: '自己组件',
     meta: {
