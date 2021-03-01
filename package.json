@@ -34,7 +34,7 @@
     "md5": "^2.2.1",
     "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
-    "three": "^0.116.1",
+    "three": "^0.125.0",
     "tree-table-vue": "^1.1.0",
     "v-org-tree": "^1.0.6",
     "vue": "^2.5.10",
