@@ -32,9 +32,9 @@
         label="地址"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address" size="small" v-show="disable">
+          <SelectCom v-model="scope.row.address" size="small" v-show="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -42,9 +42,9 @@
         label="地址1"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address1" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address1" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -52,9 +52,9 @@
         label="地址2"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address2" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address2" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -62,9 +62,9 @@
         label="地址3"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address3" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address3" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -72,9 +72,9 @@
         label="地址4"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address4" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address4" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -82,9 +82,9 @@
         label="地址5"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address5" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address5" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -92,9 +92,9 @@
         label="地址6"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address6" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address6" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -102,9 +102,9 @@
         label="地址7"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address7" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address7" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -112,9 +112,9 @@
         label="地址8"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address8" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address8" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -122,9 +122,9 @@
         label="地址9"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address9" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address9" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -132,9 +132,9 @@
         label="地址10"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address10" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address10" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -142,9 +142,9 @@
         label="地址11"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address11" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address11" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -152,9 +152,9 @@
         label="地址12"
         width="120">
         <template slot-scope="scope">
-          <Select v-model="scope.row.address12" size="small" v-if="disable">
+          <SelectCom v-model="scope.row.address12" size="small" v-if="disable">
             <Option v-for="(item, index) in addList" :key="index" :value="item.dictValue">{{item.dictName}}</Option>
-          </Select>
+          </SelectCom>
         </template>
       </el-table-column>
       <el-table-column
@@ -170,8 +170,10 @@
 </template>
 
 <script>
+  import SelectCom from './com'
   export default {
     name: "table",
+    components: {SelectCom},
     data() {
       return {
         tableData: [],

@@ -94,8 +94,8 @@
           </div>
           <div class="flex" v-else>
             <div class="options-item-label" :title="item['code']" style="width: 60px;">{{item['code']}}</div>
-            <div class="options-itm-desc" :title="item['englishName']" style="width: 150px;">{{item['englishName']!=''?item['englishName']:'无'}}</div>
-            <div class="options-item-desc" :title="item['stateName']" style="width: 120px;">{{item['stateName']!=''?item['stateName']:'无'}}</div>
+            <div class="options-itm-desc" :title="item['englishName']" style="width: 150px;">{{item[labelField]!=''?item[labelField]:'无'}}</div>
+            <div class="options-item-desc" :title="item['stateName']" style="width: 120px;">{{item[descField]!=''?item[descField]:'无'}}</div>
             <div class="options-item-desc" :title="item['countryName']" style="width: 120px;">{{item['countryName']!=''?item['countryName']:'无'}}</div>
             <div class="options-item-desc" :title="item['remark']" style="width: 60px;">{{item['remark']!=''?item['remark']:'无'}}</div>
             <div class="options-item-desc" :title="item['itemOne']" style="width: 50px;">{{item['itemTwo']!=null?item['itemTwo']:''}}</div>
@@ -322,7 +322,7 @@
           }
           this.firstLoaded = true;
           this.$nextTick(() => {
-            this.$refs.select.updateDrop();
+            // this.$refs.select.updateDrop();
           });
         },
         deep: true

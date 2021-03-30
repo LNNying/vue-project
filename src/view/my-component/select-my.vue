@@ -10,12 +10,13 @@
       :first-load-data.sync="firstLoadData"
       :total="total"
       :data="list"
+      type="12312"
       data-field="a"
       value-field="customerId"
       size="small"
       icon="ios-search"
       label-field="customerName"
-      descField="mnemonicCode"
+      descField="customerName"
       placeholder="测试"
       style="width:100%"
       @on-change="onChangeCustomerInfo"
@@ -36,7 +37,12 @@
         custNo: '',
         loadingData: false,
         total: 0,
-        list: [],
+        list: [
+          {
+            customerName: '2334',
+            customerId: '214314'
+          }
+        ],
         firstLoadData: null,
         customertableOpt: {
           pageNum: 1,

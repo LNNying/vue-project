@@ -1,6 +1,8 @@
 <template>
   <div>
-    <my-com :list="list" @click="but">按钮</my-com>
+    <my-com @click="but" v-model="select">
+      <Option v-for="(item, index) in list" :value="item.dictValue" :key="index">{{item.dictName}}</Option>
+    </my-com>
   </div>
 </template>
 
@@ -12,6 +14,7 @@
     components: {myCom},
     data() {
       return {
+        select: '1',
         list: [
           {
             dictName: '1',
@@ -27,6 +30,11 @@
     methods: {
       but() {
         console.log('sdf');
+      }
+    },
+    watch: {
+      select(newVal) {
+        console.log(newVal);
       }
     }
   }

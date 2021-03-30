@@ -36,20 +36,10 @@
           :config="{
             x: item.x,
             y: item.y,
-            rotation: item.rotation,
             id: item.id,
             numPoints: 5,
             innerRadius: 30,
-            outerRadius: 50, fill: '#89b717',
-            opacity: 0.8,
-            draggable: true,
-            scaleX: dragItemId === item.id ? item.scale * 1.2 : item.scale,
-            scaleY: dragItemId === item.id ? item.scale * 1.2 : item.scale,
-            shadowColor: 'black',
-            shadowBlur: 10,
-            shadowOffsetX: dragItemId === item.id ? 15 : 5,
-            shadowOffsetY: dragItemId === item.id ? 15 : 5,
-            shadowOpacity: 0.6
+            outerRadius: 50, fill: '#89b717'
           }"
         ></v-star>
       </v-layer>
@@ -59,8 +49,8 @@
 
 <script>
 // let scale = 1
-const width = window.innerWidth
-const height = window.innerHeight
+// const width = window.innerWidth
+// const height = window.innerHeight
 export default {
   name: 'testMap',
   data () {
@@ -68,8 +58,8 @@ export default {
       list: [],
       dragItemId: null,
       configKonva: {
-        width: width,
-        height: height,
+        width: 2000,
+        height: 4000,
         draggable: true
       },
       width: window.innerWidth,
@@ -123,7 +113,7 @@ export default {
     },
     buildMap () {
       this.list = []
-      for (let n = 0; n < 30; n++) {
+      for (let n = 0; n < 3000; n++) {
         this.list.push({
           id: Math.round(Math.random() * 10000).toString(),
           x: Math.random() * this.width,

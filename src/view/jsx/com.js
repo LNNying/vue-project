@@ -5,16 +5,6 @@
  *   参数3 为slot 也就是自定义组件中嵌套的标签内容
  *
  */
-
-let select = {
-  name: 'select',
-  props: {
-    list: Array,
-  },
-  render() {
-
-  }
-};
 export default {
   name: 'my-button',
   functional: true,
