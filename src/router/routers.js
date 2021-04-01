@@ -82,6 +82,40 @@ export default [
   //   ]
   // },
   {
+    path: '/konva-map',
+    name: 'konva-map',
+    component: Main,
+    meta: {
+      title: 'Konva地图',
+    },
+    children: [
+      {
+        path: 'map1',
+        name: 'map1',
+        meta: {
+          title: '地图1'
+        },
+        component: () => import('@/view/konva/map1.vue')
+      },
+      {
+        path: 'map2',
+        name: 'map2',
+        meta: {
+          title: '地图2'
+        },
+        component: () => import('@/view/konva/map2.vue')
+      },
+      {
+        path: 'map3',
+        name: 'map3',
+        meta: {
+          title: '地图3'
+        },
+        component: () => import('@/view/konva/map3.vue')
+      }
+    ]
+  },
+  {
     path: '/message',
     name: 'message',
     component: Main,
