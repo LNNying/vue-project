@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import user from './module/user'
 import app from './module/app'
 import theme from 'iview-admin-plus/src/store/theme'
+import set from './module/setting'
 
 Vue.use(Vuex);
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
   modules: {
     user,
     app,
-    theme
+    theme,
+    set
   }
 })

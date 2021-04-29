@@ -1,6 +1,9 @@
 <template>
 <div>
+  <Button type="warning">234234</Button>
+  <Button type="success">234234</Button>
   <Button type="primary" @click="translate">旋转</Button>
+  <Button type="primary" @click="deleteItem">删除</Button>
   <p>{{msg}}</p>
   <v-stage
     ref="stage"
@@ -98,6 +101,7 @@
     data() {
       return {
         rectList: [],
+        clickRct: null,
         interval: 15,
         msg: '',
         tipMsg: '鼠标左键:点击拖拽;鼠标右键:框选.',
@@ -123,6 +127,13 @@
       }
     },
     methods: {
+      deleteItem() {
+        if (!this.clickRct) {
+          return
+        }
+        this.clickRct.destroy();
+
+      },
       up() {
       },
       down() {
@@ -144,6 +155,7 @@
       clickNode(e) {
         console.log(e);
         let body = e.target.attrs;
+        this.clickRct = e.target;
         console.log(body);
         if (!!body && body.id) {
           this.msg = 'x=> ' + body.x + 'y=> ' + body.y ;

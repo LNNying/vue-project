@@ -1,6 +1,6 @@
-// import Main from '@/components/main'
+import Main from '@/components/main'
 import parentView from '@/components/parent-view'
-import Main from 'iview-admin-plus/src/components/main'
+// import Main from 'iview-admin-plus/src/components/main'
 /**
  * iview-admin中meta除了原生参数外可配置的参数:
  * meta: {
@@ -112,6 +112,54 @@ export default [
           title: '地图3'
         },
         component: () => import('@/view/konva/map3.vue')
+      },
+      {
+        path: 'map4',
+        name: 'map4',
+        meta: {
+          title: '地图4'
+        },
+        component: () => import('@/view/konva/map4.vue')
+      },
+      {
+        path: 'map5',
+        name: 'map5',
+        meta: {
+          title: '地图5'
+        },
+        component: () => import('@/view/konva/map5.vue')
+      },
+      {
+        path: 'map6',
+        name: 'map6',
+        meta: {
+          title: '地图6'
+        },
+        component: () => import('@/view/konva/map6.vue')
+      },
+      {
+        path: 'map7',
+        name: 'map7',
+        meta: {
+          title: '地图7'
+        },
+        component: () => import('@/view/konva/map7.vue')
+      },
+      {
+        path: 'map8',
+        name: 'map8',
+        meta: {
+          title: '地图8'
+        },
+        component: () => import('@/view/konva/map8.vue')
+      },
+      {
+        path: 'map9',
+        name: 'map9',
+        meta: {
+          title: '地图9'
+        },
+        component: () => import('@/view/konva/map9.vue')
       }
     ]
   },

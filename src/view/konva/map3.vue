@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Button type="primary" @click="deleteItem">删除</Button>
     <div id="content"></div>
   </div>
 </template>
@@ -16,6 +17,9 @@
       }
     },
     methods: {
+      deleteItem() {
+
+      },
       init() {
         this.stage = new Konva.Stage({
           container: 'content',

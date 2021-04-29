@@ -27,10 +27,15 @@
           <div class="tag-nav-wrapper">
             <tags-nav :value="$route" @input="handleClick" :list="tagNavList" @on-close="handleCloseTag"/>
           </div>
+          <RightPanel v-if="settingShow">
+            <setting></setting>
+          </RightPanel>
           <Content class="content-wrapper">
-            <keep-alive :include="cacheList">
-              <router-view/>
-            </keep-alive>
+            <transition-page  :disabled="animate.disabled" :animate="animate.name" :direction="animate.direction">
+              <keep-alive :include="cacheList">
+                <router-view/>
+              </keep-alive>
+            </transition-page>
             <ABackTop :height="100" :bottom="80" :right="50" container=".content-wrapper"></ABackTop>
           </Content>
         </Layout>
@@ -47,15 +52,21 @@ import ABackTop from './components/a-back-top'
 import Fullscreen from './components/fullscreen'
 import Language from './components/language'
 import ErrorStore from './components/error-store'
-import { mapMutations, mapActions, mapGetters } from 'vuex'
+import { mapMutations, mapActions, mapGetters, mapState } from 'vuex'
 import { getNewTagList, routeEqual } from '@/libs/util'
 import routers from '@/router/routers'
 import minLogo from '@/assets/images/logo-min.jpg'
 import maxLogo from '@/assets/images/logo.jpg'
 import './main.less'
+import RightPanel from "../layout/index";
+import TransitionPage from "../layout/transition-page";
+import Setting from "../layout/setting";
 export default {
   name: 'Main',
   components: {
+    Setting,
+    TransitionPage,
+    RightPanel,
     SideMenu,
     HeaderBar,
     Language,
@@ -67,6 +78,7 @@ export default {
   },
   data () {
     return {
+      show: false,
       collapsed: false,
       minLogo,
       maxLogo,
@@ -77,6 +89,7 @@ export default {
     ...mapGetters([
       'errorCount'
     ]),
+    ...mapState('set', ['settingShow', 'animate']),
     tagNavList () {
       return this.$store.state.app.tagNavList
     },
