@@ -32,7 +32,7 @@
     "js-md5": "^0.7.3",
     "jsoneditor": "^8.6.3",
     "konva": "^4.1.6",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "md5": "^2.2.1",
     "simplemde": "^1.11.2",
     "sortablejs": "^1.7.0",
